@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>will u be my valentine?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(to bottom, #ffffff, #ffd6f6, #cce0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Heart Rain */
+.heart {
+    position: absolute;
+    top: -10px;
+    color: pink;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+.container {
+    background: rgba(255,255,255,0.85);
+    padding: 60px;
+    border-radius: 25px;
+    box-shadow: 0 0 40px pink;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+    color: royalblue;
+    text-shadow: 0 0 20px pink;
+}
+
+p {
+    font-size: 22px;
+    color: #444;
+    margin-bottom: 40px;
+}
+
+.royal-btn {
+    padding: 18px 45px;
+    font-size: 22px;
+    background: linear-gradient(145deg, #ff9de2, #6ea8ff);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 25px pink;
+    transition: 0.4s ease;
+}
+
+.royal-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 40px #ff9de2, 0 0 60px #6ea8ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>will u be my valentine?</h1>
+    <p>If your answer is yes, open my special Valentine letter made just for you.💕</p>
+    <a href="vtwo.html" class="royal-btn">
+        💖 Open My Valentine Letter 💖
+    </a>
+</div>
+
+<script>
+// Create falling hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+</body>
+</html>

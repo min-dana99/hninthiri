@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love Letter</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #ffd6f6, #cce0ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Letter Box */
+.letter-container {
+    background: white;
+    padding: 70px;
+    max-width: 700px;
+    border-radius: 30px;
+    box-shadow: 0 0 60px pink;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 55px;
+    color: crimson;
+    text-shadow: 0 0 20px pink;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Rose Animation */
+.rose {
+    position: absolute;
+    top: -50px;
+    font-size: 30px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* BOOM explosion */
+@keyframes explode {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+.explosion {
+    position: absolute;
+    font-size: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: explode 1s ease-out forwards;
+    z-index: 1;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 35px;
+    background: crimson;
+    color: white;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 0 25px pink;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="letter-container">
+    <h1>Happy Valentine day thel tone</h1>
+
+    <p>
+       Happy Valentine’s Day to the most important person in my life.
+
+
+    </p>
+
+    <p>
+       To me, love is not just one day a year. Every day feels like Valentine’s Day when I’m with you.
+    </p>
+
+    <p>
+        Still, today I wanted to do something special to show you how much you mean to me. I hope you like my gift and the flowers.
+You make me feel better. 
+Happy Valentine’s Day ❤️    </p>
+
+    <a href="v.html" class="back-btn">Back to My Heart</a>
+</div>
+
+<script>
+// 🌹 Continuous Rose Rain
+function createRose() {
+    const rose = document.createElement("div");
+    rose.classList.add("rose");
+    rose.innerHTML = "🌸";
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.fontSize = Math.random() * 20 + 20 + "px";
+    rose.style.animationDuration = Math.random() * 3 + 4 + "s";
+    document.body.appendChild(rose);
+
+    setTimeout(() => {
+        rose.remove();
+    }, 7000);
+}
+
+setInterval(createRose, 250);
+
+// 💥 BOOM Explosion on Load
+window.onload = function() {
+    const boom = document.createElement("div");
+    boom.classList.add("explosion");
+    boom.innerHTML = "🌸";
+    document.body.appendChild(boom);
+
+    setTimeout(() => {
+        boom.remove();
+    }, 1000);
+};
+</script>
+
+</body>
+</html>
